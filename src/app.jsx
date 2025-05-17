@@ -1,3 +1,9 @@
+// export function App() {
+//   return (
+//     <Experiences ref={section2Ref} />
+//   );
+// }
+
 import { useState, useRef } from "preact/hooks";
 import "./app.css";
 import { Experiences } from "./experiences";
