@@ -5,6 +5,7 @@ import { Login } from "./pages/login";
 import { Dashboard } from "./pages/dashboard";
 import { Crudexperiences } from "./pages/crudexperiences";
 import { Createexp } from "./components/crudexp/createexp";
+import { Updateexp } from "./components/crudexp/updateexp";
 import { Router, Route, route } from "preact-router";
 import supabase from "../supabaseClient";
 
@@ -26,8 +27,7 @@ export function App() {
         // Jika pengguna logout, arahkan ke halaman login
         route("/login");
       } else {
-        // Jika pengguna login, arahkan ke halaman dashboard
-        route("/dashboard");
+        // Jika session ada, biarkan pengguna tetap di halaman yang diinginkan
       }
     });
 
@@ -36,17 +36,61 @@ export function App() {
     };
   }, []);
 
-  // Jika belum ada session (pengguna belum login)
-  
+  // cek apakah pengguna sudah login sebelum memberikan akses ke rute tertentu
+  const ProtectedRoute = ({ component: Component, ...props }) => {
+    if (!session) {
+      route("/login");
+      return null;
+    }
+    return <Component {...props} />;
+  };
 
   return (
     <>
       <Router>
+        {/* Middleware public */}
         <Route path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route
+          path="/login"
+          component={(props) => {
+            if (session) {
+              useEffect(() => {
+                route("/", true);
+              }, []);
+              return null;
+            }
+            return <Login {...props} />;
+          }}
+        />
+
+        {/* Middleware authenticated */}
+        {/* <Route path="/dashboard" component={Dashboard} />
         <Route path="/crudexperiences" component={Crudexperiences} />
-        <Route path="/createexp" component={Createexp} />
+        <Route path="/createexp" component={Createexp} /> */}
+        <Route
+          path="/dashboard"
+          component={(props) => (
+            <ProtectedRoute component={Dashboard} {...props} />
+          )}
+        />
+        <Route
+          path="/crudexperiences"
+          component={(props) => (
+            <ProtectedRoute component={Crudexperiences} {...props} />
+          )}
+        />
+        <Route
+          path="/createexp"
+          component={(props) => (
+            <ProtectedRoute component={Createexp} {...props} />
+          )}
+        />
+        <Route
+          path="/updateexp/:id"
+          component={(props) => (
+            <ProtectedRoute component={Updateexp} {...props} />
+          )}
+        />
       </Router>
     </>
   );

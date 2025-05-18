@@ -21,13 +21,12 @@ export function NavDrawer() {
     try {
       // Melakukan logout dengan Supabase
       await supabase.auth.signOut();
-      route('/login');
+      route("/login");
       // Setelah logout, arahkan pengguna ke halaman login
     } catch (error) {
       console.error("Error during logout:", error.message);
     }
   };
-
   return (
     <aside
       className={` h-max-screen bg-gray-800 p-3 transform transition-all duration-300 ${
@@ -164,12 +163,11 @@ export function NavDrawer() {
         onClick={handleLogout}
         className="w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm cursor-pointer"
       >
-        <LogOut
-          size={16}
-          className={`text-blue-custom`}
-        />
+        <LogOut size={16} className={`text-blue-custom`} />
         <span
-          className={`${!isOpen && "hidden"} text-blue-custom transition-all duration-300`}
+          className={`${
+            !isOpen && "hidden"
+          } text-blue-custom transition-all duration-300`}
         >
           Log out
         </span>
