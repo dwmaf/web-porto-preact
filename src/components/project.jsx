@@ -1,6 +1,6 @@
 export function Project({ thumbnail, appname, description, techs, alt }) {
   return (
-    <div className=" bg-slate-950 p-4 mb-10 rounded-2xl">
+    <div className=" bg-slate-950 p-4 rounded-2xl">
         <img src={thumbnail} alt={alt} className="w-full max-h-80 object-cover object-top rounded-md border border-teal-200 mb-3 text-teal-100"/>
       <h5 className="mb-2 text-teal-500 text-lg font-bold flex items-center gap-2">
             {appname}

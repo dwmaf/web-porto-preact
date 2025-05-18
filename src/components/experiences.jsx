@@ -1,6 +1,6 @@
 import { useState, useEffect, forwardRef } from "preact/compat";
-import { Exp } from "./components/exp";
-import supabase from "../supabaseClient";
+import { Exp } from "./exp";
+import supabase from "../../supabaseClient";
 export const Experiences = forwardRef((props, ref) => {
   const [experiences, setExperiences] = useState([]);
   useEffect(() => {
@@ -10,11 +10,6 @@ export const Experiences = forwardRef((props, ref) => {
     const { data } = await supabase.from("experiences").select();
     setExperiences(data);
   }
-
-  if (experiences.length === 0) {
-    return <div>No experiences found</div>;
-  }
-
   return (
     <>
       <h2 ref={ref} className="text-sm font-bold text-slate-200 mb-4 mt-24">

@@ -1,5 +1,5 @@
 import { forwardRef } from "preact/compat";
-import { Project } from "./components/project";
+import { Project } from "./project";
 export const Projects = forwardRef((props, ref) => {
   return (
     <>
