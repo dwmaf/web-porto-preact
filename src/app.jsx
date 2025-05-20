@@ -6,6 +6,10 @@ import { Dashboard } from "./pages/dashboard";
 import { Crudexperiences } from "./pages/crudexperiences";
 import { Createexp } from "./components/crudexp/createexp";
 import { Updateexp } from "./components/crudexp/updateexp";
+import { Createtech } from "./components/crudtechs/createtech";
+import { Updatetech } from "./components/crudtechs/updatetech";
+import { Createproject } from "./components/crudproject/createproject";
+import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
 import supabase from "../supabaseClient";
 
@@ -89,6 +93,30 @@ export function App() {
           path="/updateexp/:id"
           component={(props) => (
             <ProtectedRoute component={Updateexp} {...props} />
+          )}
+        />
+        <Route
+          path="/createtech"
+          component={(props) => (
+            <ProtectedRoute component={Createtech} {...props} />
+          )}
+        />
+        <Route
+          path="/updatetech/:id"
+          component={(props) => (
+            <ProtectedRoute component={Updatetech} {...props} />
+          )}
+        />
+        <Route
+          path="/createproject"
+          component={(props) => (
+            <ProtectedRoute component={Createtech} {...props} />
+          )}
+        />
+        <Route
+          path="/updateproject/:id"
+          component={(props) => (
+            <ProtectedRoute component={Updatetech} {...props} />
           )}
         />
       </Router>
