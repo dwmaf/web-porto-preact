@@ -1,0 +1,13 @@
+[
+  { "id": 1, "techname": "React", "icon_source":"/react.png"},
+  { "id": 2, "techname": "AlpineJS", "icon_source":"/alpinejs.png"},
+  { "id": 3, "techname": "Bootstrap", "icon_source":"/bootstrap.png"},
+  { "id": 4, "techname": "Javascript", "icon_source":"/js.png"},
+  { "id": 5, "techname": "Kotlin", "icon_source":"/kotlin.png"},
+  { "id": 6, "techname": "Laravel", "icon_source":"/laravel-icon.png" },
+  { "id": 7, "techname": "Mysql", "icon_source":"/mysql.png" },
+  { "id": 8, "techname": "NextJs", "icon_source":"/nextjs.png" },
+  { "id": 9, "techname": "PHP", "icon_source":"/php.png" },
+  { "id": 10, "techname": "Tailwind", "icon_source":"/tailwind.png" },
+  { "id": 11, "techname": "Tensorflow", "icon_source":"/tensorflow.png" }
+]

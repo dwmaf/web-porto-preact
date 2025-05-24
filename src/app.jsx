@@ -4,10 +4,9 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Dashboard } from "./pages/dashboard";
 import { Crudexperiences } from "./pages/crudexperiences";
+import { Crudprojects } from "./pages/crudprojects";
 import { Createexp } from "./components/crudexp/createexp";
 import { Updateexp } from "./components/crudexp/updateexp";
-import { Createtech } from "./components/crudtechs/createtech";
-import { Updatetech } from "./components/crudtechs/updatetech";
 import { Createproject } from "./components/crudproject/createproject";
 import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
@@ -84,6 +83,12 @@ export function App() {
           )}
         />
         <Route
+          path="/crudprojects"
+          component={(props) => (
+            <ProtectedRoute component={Crudprojects} {...props} />
+          )}
+        />
+        <Route
           path="/createexp"
           component={(props) => (
             <ProtectedRoute component={Createexp} {...props} />
@@ -93,18 +98,6 @@ export function App() {
           path="/updateexp/:id"
           component={(props) => (
             <ProtectedRoute component={Updateexp} {...props} />
-          )}
-        />
-        <Route
-          path="/createtech"
-          component={(props) => (
-            <ProtectedRoute component={Createtech} {...props} />
-          )}
-        />
-        <Route
-          path="/updatetech/:id"
-          component={(props) => (
-            <ProtectedRoute component={Updatetech} {...props} />
           )}
         />
         <Route
