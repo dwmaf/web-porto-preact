@@ -27,10 +27,12 @@ export function App() {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (!session) {
-        // Jika pengguna logout, arahkan ke halaman login
-        route("/login");
-      } else {
-        // Jika session ada, biarkan pengguna tetap di halaman yang diinginkan
+        const publicRoutes = ["/", "/login"];
+        const currentPath = window.location.pathname;
+
+        if (!publicRoutes.includes(currentPath)) {
+          route("/login");
+        }
       }
     });
 
@@ -58,7 +60,7 @@ export function App() {
           component={(props) => {
             if (session) {
               useEffect(() => {
-                route("/", true);
+                route("/dashboard", true);
               }, []);
               return null;
             }
