@@ -92,7 +92,7 @@ export function Home() {
               consectetur corrupti eaque fugiat alias? Repellendus!
             </p>
 
-            <div className="gap-5 flex flex-col ">
+            <div className="gap-5 flex flex-col mb-5">
               <Experiences ref={section2Ref} />
               <Projects ref={section3Ref} />
             </div>

@@ -13,9 +13,6 @@ export function Updateproject({ id }) {
   const [techs, setSelectedTechs] = useState([]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  console.log(typeof(thumbnail));
-  console.log(thumbnail);
-  
   
   useEffect(() => {
     fetchProject();

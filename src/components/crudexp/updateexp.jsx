@@ -13,7 +13,6 @@ export function Updateexp({id}) {
   const [success, setSuccess] = useState("");
   
   const experienceId = id;
-  console.log(experienceId);
 
   useEffect(() => {
     async function getExperience() {
