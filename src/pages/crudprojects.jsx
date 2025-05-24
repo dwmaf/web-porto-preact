@@ -1,24 +1,19 @@
 import { useState, useEffect } from "preact/hooks";
 import techData from "../assets/techs.json";
+import thumbnailData from "../assets/thumbnails.json";
 import supabase from "../../supabaseClient";
 import { PlusSquare, Trash2, Edit } from "feather-icons-react";
 import { MainLayout } from "../layouts/mainlayout";
 import { route } from "preact-router";
 
-const CLOUDINARY_URL = import.meta.env.CLOUDINARY_URL;
-const CLOUDINARY_UPLOAD_PRESET = import.meta.env.CLOUDINARY_UPLOAD_PRESET;
-
 export function Crudprojects() {
   const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [allTechs, setAllTechs] = useState([]);
   const [projectIdToDelete, setProjectIdToDelete] = useState(null);
   console.log(techData[0].techname);
-  
+
   useEffect(() => {
     getProjects();
-    // setAllTechs(techData);
-    // console.log(allTechs);
   }, []);
 
   async function getProjects() {
@@ -26,23 +21,9 @@ export function Crudprojects() {
     setProjects(data);
   }
 
-  // async function getTechIcons() {
-  //   const res = await fetch("../assets/techs.json");
-  //   const techs = await res.json();
-  //   setAllTechs(techs);
-  // }
-
-  // const getIconById = (id) => {
-  //   const found = allTechs.find((t) => t.id === id);
-  //   return found?.icon_source || "";
-  // };
-
   const handleEdit = (id) => {
     route(`/updateproject/${id}`);
   };
-  // useEffect(() => {
-  //   console.log(experienceIdToDelete);
-  // }, [experienceIdToDelete]);
 
   const openModal = (id) => {
     setProjectIdToDelete(id);
@@ -55,15 +36,27 @@ export function Crudprojects() {
     setProjectIdToDelete(null);
   };
 
+  const handleDelete = async () => {
+    // console.log('id di proses handledelete',experienceIdToDelete);
+    const { data, error } = await supabase
+      .from("projects")
+      .delete()
+      .eq("id", projectIdToDelete);
+    if (error) {
+      console.error("Error deleting experience:", error);
+    } else {
+      getProjects(); // Refresh daftar pengalaman setelah dihapus
+      closeModal();
+    }
+  };
+
   return (
     <MainLayout>
       <div className="bg-gray-800 w-full rounded p-4">
         <div className="flex justify-between mb-3">
-          <h1 className="text-white text-3xl font-bold">Tech Stacks
-            
-          </h1>
+          <h1 className="text-white text-3xl font-bold">Projects</h1>
           <a
-            href="/createtech"
+            href="/createproject"
             className="bg-teal-900 rounded-md py-1 px-3 cursor-pointer flex items-center gap-2"
           >
             <PlusSquare size={20} className="text-teal-200 " />
@@ -73,6 +66,9 @@ export function Crudprojects() {
         <table class="min-w-full table-auto border-separate border-spacing-0 border-2 border-gray-700 rounded-lg overflow-hidden">
           <thead class="bg-gray-800 text-gray-300">
             <tr>
+              <th class=" px-3 py-2 text-left text-md font-semibold border-b-2 border-gray-700">
+                Thumbnail
+              </th>
               <th class=" px-3 py-2 text-left text-md font-semibold border-b-2 border-gray-700">
                 App Name
               </th>
@@ -87,22 +83,31 @@ export function Crudprojects() {
           <tbody class="text-gray-400">
             {projects.map((project) => (
               <tr key={project.id} class="transition-colors duration-300">
-                <td class="px-3 py-3 text-sm gap-1 flex items-center">
+                <td class="px-3 py-3 text-sm gap-1 items-center">
+                  <img src={thumbnailData[project.thumbnail].thumb_source} alt="" className="w-6" />
+                </td>
+                <td class="px-3 py-3 text-sm gap-1 items-center">
                   {project.appname}
                 </td>
                 <td class="px-3 py-3 text-sm ">
-                  
-                  {project.techs.map((techId, index) => (
-                    <div class="flex items-center gap-1">
-                      <img
-                        src={techData[techId].icon_source}
-                        alt={techData[techId].techname}
-                        className="w-4 object-contain"
-                      />
-                      <span class="text-xs leading-none" >{techData[techId].techname}</span>
-                    </div>
-                  ))}
-
+                  <div className="flex flex-wrap gap-2">
+                    {project.techs.map((techId, index) => (
+                      <div class="flex items-center gap-1">
+                        <div
+                          className={`rounded-3xl w-8 h-8 flex items-center justify-center ${techData[techId]["bg-spesial"]}`}
+                        >
+                          <img
+                            src={techData[techId].icon_source}
+                            alt={techData[techId].techname}
+                            className={`w-5`}
+                          />
+                        </div>
+                        <span className="text-xs leading-none">
+                          {techData[techId].techname}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </td>
                 <td class="px-3 py-3 text-sm">
                   <div className="flex gap-2">
@@ -139,7 +144,10 @@ export function Crudprojects() {
                 >
                   Cancel
                 </button>
-                <button className="bg-red-600 text-white py-2 px-4 rounded-md">
+                <button
+                  onClick={handleDelete}
+                  className="bg-red-600 text-white py-2 px-4 rounded-md"
+                >
                   Delete
                 </button>
               </div>

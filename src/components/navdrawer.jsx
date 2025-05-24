@@ -1,13 +1,13 @@
 import { useState } from "preact/hooks";
 import { Link, route } from "preact-router";
 import {
-  Home,
+  
   Feather,
   Award,
   File,
   BarChart2,
   Sidebar,
-  LogOut,
+  LogOut, Grid
 } from "feather-icons-react";
 import supabase from "../../supabaseClient";
 
@@ -48,7 +48,7 @@ export function NavDrawer() {
               : "text-blue-custom"
           }`}
       >
-        <Home
+        <Grid
           size={16}
           className={`${
             location.pathname === "/dashboard"

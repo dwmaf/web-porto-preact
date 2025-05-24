@@ -22,9 +22,6 @@ export function Crudexperiences() {
   const handleEdit = (id) => {
     route(`/updateexp/${id}`);
   };
-  // useEffect(() => {
-  //   console.log(experienceIdToDelete);
-  // }, [experienceIdToDelete]);
 
   const openModal = (id) => {
     setExperienceIdToDelete(id);

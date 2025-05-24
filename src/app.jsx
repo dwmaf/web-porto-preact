@@ -103,13 +103,13 @@ export function App() {
         <Route
           path="/createproject"
           component={(props) => (
-            <ProtectedRoute component={Createtech} {...props} />
+            <ProtectedRoute component={Createproject} {...props} />
           )}
         />
         <Route
           path="/updateproject/:id"
           component={(props) => (
-            <ProtectedRoute component={Updatetech} {...props} />
+            <ProtectedRoute component={Updateproject} {...props} />
           )}
         />
       </Router>

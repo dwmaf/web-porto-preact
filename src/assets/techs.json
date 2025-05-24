@@ -1,13 +1,16 @@
 [
-  { "id": 1, "techname": "React", "icon_source":"/react.png"},
-  { "id": 2, "techname": "AlpineJS", "icon_source":"/alpinejs.png"},
-  { "id": 3, "techname": "Bootstrap", "icon_source":"/bootstrap.png"},
-  { "id": 4, "techname": "Javascript", "icon_source":"/js.png"},
-  { "id": 5, "techname": "Kotlin", "icon_source":"/kotlin.png"},
-  { "id": 6, "techname": "Laravel", "icon_source":"/laravel-icon.png" },
-  { "id": 7, "techname": "Mysql", "icon_source":"/mysql.png" },
-  { "id": 8, "techname": "NextJs", "icon_source":"/nextjs.png" },
-  { "id": 9, "techname": "PHP", "icon_source":"/php.png" },
-  { "id": 10, "techname": "Tailwind", "icon_source":"/tailwind.png" },
-  { "id": 11, "techname": "Tensorflow", "icon_source":"/tensorflow.png" }
+  { "id": 0, "techname": "React", "icon_source":"/react.png", "bg-spesial":"bg-green-900"},
+  { "id": 1, "techname": "AlpineJS", "icon_source":"/alpinejs.png", "bg-spesial":"bg-cyan-900"},
+  { "id": 2, "techname": "Bootstrap", "icon_source":"/bootstrap.png", "bg-spesial":"bg-violet-400"},
+  { "id": 3, "techname": "Javascript", "icon_source":"/javascript.png", "bg-spesial":"bg-yellow-800"},
+  { "id": 4, "techname": "Kotlin", "icon_source":"/kotlin.png", "bg-spesial":"bg-cyan-900"},
+  { "id": 5, "techname": "Laravel", "icon_source":"/laravel-icon.png" , "bg-spesial":"bg-rose-300"},
+  { "id": 6, "techname": "Mysql", "icon_source":"/mysql.png" , "bg-spesial":"bg-slate-400"},
+  { "id": 7, "techname": "NextJs", "icon_source":"/nextjs.png" , "bg-spesial":"bg-green-900"},
+  { "id": 8, "techname": "PHP", "icon_source":"/php.png" , "bg-spesial":"bg-sky-800"},
+  { "id": 9, "techname": "Tailwind", "icon_source":"/tailwind.png" , "bg-spesial":"bg-cyan-900"},
+  { "id": 10, "techname": "Tensorflow", "icon_source":"/tensorflow.png" , "bg-spesial":"bg-orange-300"},
+  { "id": 11, "techname": "Preact", "icon_source":"/preact.png" , "bg-spesial":"bg-violet-400"},
+  { "id": 12, "techname": "Supabase", "icon_source":"/supabase.png" , "bg-spesial":"bg-green-950"},
+  { "id": 13, "techname": "PostgreSQL", "icon_source":"/postgresql.png" , "bg-spesial":"bg-blue-300"}
 ]
