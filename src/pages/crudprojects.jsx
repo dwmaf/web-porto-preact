@@ -10,7 +10,7 @@ export function Crudprojects() {
   const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [projectIdToDelete, setProjectIdToDelete] = useState(null);
-  console.log(techData[0].techname);
+  
 
   useEffect(() => {
     getProjects();
@@ -37,7 +37,6 @@ export function Crudprojects() {
   };
 
   const handleDelete = async () => {
-    // console.log('id di proses handledelete',experienceIdToDelete);
     const { data, error } = await supabase
       .from("projects")
       .delete()

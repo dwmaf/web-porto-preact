@@ -11,8 +11,8 @@ export function Createproject() {
   const [techs, setSelectedTechs] = useState([]); // To store selected tech stacks
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  console.log(techData[0].techname);
-
+  console.log(typeof(thumbnail));
+  
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
