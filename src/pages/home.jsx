@@ -77,19 +77,9 @@ export function Home() {
               ABOUT
             </h2>
             <p className="mb-4 text-blue-custom text-justify">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              adipisci repudiandae error, debitis, saepe minus necessitatibus
-              illum et totam nemo maiores. Nostrum excepturi, optio soluta
-              praesentium omnis ratione! Necessitatibus excepturi modi possimus
-              doloribus ducimus exercitationem enim fuga cumque omnis dicta
-              repellat, minima ullam explicabo beatae natus quibusdam quia illo
-              tempore repellendus ipsa dignissimos nihil? Libero dolorum
-              eligendi ullam odio soluta, eos officiis placeat. Ullam mollitia
-              nesciunt exercitationem voluptatem nam minima, fugiat perferendis
-              veritatis omnis quas quia culpa tempore reprehenderit magni
-              placeat consequuntur repellendus odio itaque aspernatur architecto
-              molestiae voluptate consectetur deserunt! Magnam odio dolores
-              consectetur corrupti eaque fugiat alias? Repellendus!
+              Halo! Saya adalah seorang web developer yang berdedikasi, dengan minat besar dalam membangun solusi digital yang fungsional, efisien, dan user-friendly. Saya memiliki pengalaman dalam mengembangkan berbagai jenis aplikasi web, mulai dari sistem informasi hingga platform e-commerce, menggunakan beragam teknologi modern seperti Laravel, Vue.js, Nuxt, dan lainnya.
+              Fokus utama saya adalah menciptakan produk digital yang tidak hanya berjalan dengan baik, tetapi juga memiliki dampak nyata bagi pengguna. Saya senang belajar teknologi baru, mengeksplorasi pendekatan pengembangan yang lebih baik, dan mengimplementasikan ide-ide kreatif dalam setiap proyek yang saya kerjakan.
+              Web portofolio ini adalah tempat di mana saya menampilkan karya-karya terbaik saya, proses yang saya lalui, serta kemampuan yang terus saya kembangkan. Silakan jelajahi, dan jika Anda tertarik untuk bekerja sama atau sekadar berdiskusi, jangan ragu untuk menghubungi saya!
             </p>
 
             <div className="gap-5 flex flex-col mb-5">
