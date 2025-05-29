@@ -4,7 +4,6 @@ import { Experiences } from "../components/experiences";
 import { Projects } from "../components/projects";
 import { NavButton } from "../components/navmenu";
 
-
 export function Home() {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
@@ -64,9 +63,15 @@ export function Home() {
               />
             </div>
             <div className="flex mt-8 items-center gap-5">
-              <img src="/github.png" alt="github" className="w-6 h-6" />
-              <img src="/linkedin.png" alt="linkedin" className="w-6 h-6" />
-              <img src="/ig.png" alt="instagram" className="w-6 h-6" />
+              <a href="https://github.com/dwmaf" target="_blank">
+                <img src="/github.png" alt="github" className="w-6 h-6" />
+              </a>
+              <a href="https://" target="_blank">
+                <img src="/linkedin.png" alt="linkedin" className="w-6 h-6" />
+              </a>
+              <a href="#" target="_blank">
+                <img src="/ig.png" alt="instagram" className="w-6 h-6" />
+              </a>
             </div>
           </div>
           <div id="kanan" className="lg:w-1/2 pt-20 ">
@@ -77,9 +82,25 @@ export function Home() {
               ABOUT
             </h2>
             <p className="mb-4 text-blue-custom text-justify">
-              Halo! Saya adalah seorang web developer yang berdedikasi, dengan minat besar dalam membangun solusi digital yang fungsional, efisien, dan user-friendly. Saya memiliki pengalaman dalam mengembangkan berbagai jenis aplikasi web, mulai dari sistem informasi hingga platform e-commerce, menggunakan beragam teknologi modern seperti Laravel, Vue.js, Nuxt, dan lainnya.
-              Fokus utama saya adalah menciptakan produk digital yang tidak hanya berjalan dengan baik, tetapi juga memiliki dampak nyata bagi pengguna. Saya senang belajar teknologi baru, mengeksplorasi pendekatan pengembangan yang lebih baik, dan mengimplementasikan ide-ide kreatif dalam setiap proyek yang saya kerjakan.
-              Web portofolio ini adalah tempat di mana saya menampilkan karya-karya terbaik saya, proses yang saya lalui, serta kemampuan yang terus saya kembangkan. Silakan jelajahi, dan jika Anda tertarik untuk bekerja sama atau sekadar berdiskusi, jangan ragu untuk menghubungi saya!
+              Halo! Saya adalah seorang web developer yang berdedikasi, dengan
+              minat besar dalam membangun solusi digital yang fungsional,
+              efisien, dan user-friendly. Saya memiliki pengalaman dalam
+              mengembangkan berbagai jenis aplikasi web, mulai dari{" "}
+              <strong className="text-slate-100">sistem informasi</strong>{" "}
+              hingga platform yang melibatkan{" "}
+              <strong className="text-slate-100">transaksi keuangan</strong>,
+              menggunakan beragam teknologi modern seperti{" "}
+              <strong className="text-slate-100">Laravel, React, MySQL.</strong>
+              Fokus utama saya adalah menciptakan produk digital yang tidak
+              hanya berjalan dengan baik, tetapi juga memiliki dampak nyata bagi
+              pengguna. Saya senang belajar teknologi baru, mengeksplorasi
+              pendekatan pengembangan yang lebih baik, dan mengimplementasikan
+              ide-ide kreatif dalam setiap proyek yang saya kerjakan. Web
+              portofolio ini adalah tempat di mana saya menampilkan karya-karya
+              terbaik saya, proses yang saya lalui, serta kemampuan yang terus
+              saya kembangkan. Silakan jelajahi, dan jika Anda tertarik untuk
+              bekerja sama atau sekadar berdiskusi, jangan ragu untuk
+              menghubungi saya!
             </p>
 
             <div className="gap-5 flex flex-col mb-5">

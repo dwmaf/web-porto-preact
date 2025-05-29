@@ -1,13 +1,13 @@
 import { useState } from "preact/hooks";
 import { Link, route } from "preact-router";
 import {
-  
   Feather,
   Award,
   File,
   BarChart2,
   Sidebar,
-  LogOut, Grid
+  LogOut,
+  Grid,
 } from "feather-icons-react";
 import supabase from "../../supabaseClient";
 
@@ -100,7 +100,9 @@ export function NavDrawer() {
         <File
           size={16}
           className={`${
-            location.pathname === "/crudprojects"
+            ["/crudprojects", "/createproject", "/updateproject"].some((path) =>
+              location.pathname.startsWith(path)
+            )
               ? " text-teal-200"
               : "text-blue-custom"
           }`}

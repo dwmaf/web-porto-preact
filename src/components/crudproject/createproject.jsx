@@ -68,6 +68,7 @@ export function Createproject() {
                   checked={thumbnail === thumb.id}
                   onChange={() => setThumbnail(thumb.id)}
                   className="hidden"
+                  required
                 />
                 <p className="text-sm text-center text-teal-300 mt-1">
                   {thumb.thumbnail_name}
