@@ -74,7 +74,7 @@ export function Home() {
               </a>
             </div>
           </div>
-          <div id="kanan" className="lg:w-1/2 pt-20 ">
+          <div id="kanan" className="lg:w-1/2 pt-20 pb-5">
             <h2
               className="text-sm font-bold text-slate-200 mb-4"
               ref={section1Ref}
@@ -107,6 +107,7 @@ export function Home() {
               <Experiences ref={section2Ref} />
               <Projects ref={section3Ref} />
             </div>
+            <a href="/login" className="text-sm text-slate-400 italic mt-8 text-center lg:text-left">Simplicity is the soul of efficiency - Austin Freeman</a>
           </div>
         </div>
       </body>
