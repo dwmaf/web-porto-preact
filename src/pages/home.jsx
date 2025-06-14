@@ -66,10 +66,10 @@ export function Home() {
               <a href="https://github.com/dwmaf" target="_blank">
                 <img src="/github.png" alt="github" className="w-6 h-6" />
               </a>
-              <a href="https://" target="_blank">
+              <a href="https://linkedin.com/in/dawam-agung-fathoni" target="_blank">
                 <img src="/linkedin.png" alt="linkedin" className="w-6 h-6" />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.instagram.com/dwmaf/" target="_blank">
                 <img src="/ig.png" alt="instagram" className="w-6 h-6" />
               </a>
             </div>

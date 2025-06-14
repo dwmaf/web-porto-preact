@@ -63,29 +63,36 @@ export function NavDrawer() {
               : "text-blue-custom"
           } transition-all duration-300`}
         >
-          Home
+          Dashboard
         </span>
       </Link>
       <Link
         href="/crudexperiences"
         className={`w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 hover:bg-gray-700  rounded-sm 
           ${
-            location.pathname === "/crudexperiences"
-              ? "bg-teal-700 text-blue-900"
-              : "text-blue-custom"
+            ["/crudexperiences", "/createexp", "/updateexp"].some((path) =>
+              location.pathname.startsWith(path)
+            )
+              ? "bg-teal-700 "
+              : ""
           }`}
       >
         <Award
           size={16}
           className={`${
-            location.pathname === "/crudexperiences"
+            ["/crudexperiences", "/createexp", "/updateexp"].some((path) =>
+              location.pathname.startsWith(path)
+            )
               ? " text-teal-200"
               : "text-blue-custom"
           }`}
         />
+        
         <span
           className={`${!isOpen && "hidden"} ${
-            location.pathname === "/crudexperiences"
+            ["/crudexperiences", "/createexp", "/updateexp"].some((path) =>
+              location.pathname.startsWith(path)
+            )
               ? " text-teal-200"
               : "text-blue-custom"
           } transition-all duration-300`}
@@ -95,7 +102,14 @@ export function NavDrawer() {
       </Link>
       <a
         href="/crudprojects"
-        className="w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm"
+        className={`w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm 
+          ${
+            ["/crudprojects", "/createproject", "/updateproject"].some((path) =>
+              location.pathname.startsWith(path)
+            )
+              ? "bg-teal-700 "
+              : ""
+          }`}
       >
         <File
           size={16}
@@ -109,7 +123,9 @@ export function NavDrawer() {
         />
         <span
           className={`${!isOpen && "hidden"} ${
-            location.pathname === "/crudprojects"
+            ["/crudprojects", "/createproject", "/updateproject"].some((path) =>
+              location.pathname.startsWith(path)
+            )
               ? " text-teal-200"
               : "text-blue-custom"
           } transition-all duration-300`}

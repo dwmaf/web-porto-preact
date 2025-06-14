@@ -118,7 +118,7 @@ export function Updateproject({ id }) {
             id="description"
             value={description}
             onInput={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-2 bg-slate-900 text-teal-500 rounded-lg border border-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="min-h-[150px] w-full px-4 py-2 bg-slate-900 text-teal-500 rounded-lg border border-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
             required
           ></textarea>
         </div>

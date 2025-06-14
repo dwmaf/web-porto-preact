@@ -12,7 +12,7 @@ export function Login() {
     setError(null);
 
     try {
-      const { user, session, error } = await supabase.auth.signInWithPassword({
+      const { data: { user, session }, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -20,6 +20,9 @@ export function Login() {
       if (error) {
         throw error;
       }
+
+      localStorage.setItem('isPwaAdmin', 'true'); // Set status admin
+
       window.location.href = '/dashboard';
       console.log("User logged in:", user);
     } catch (error) {
