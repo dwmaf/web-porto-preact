@@ -3,6 +3,7 @@ import "../app.css";
 import { Experiences } from "../components/experiences";
 import { Projects } from "../components/projects";
 import { NavButton } from "../components/navmenu";
+import { Instagram, Github, Linkedin } from "feather-icons-react";
 
 export function Home() {
   const section1Ref = useRef(null);
@@ -64,13 +65,25 @@ export function Home() {
             </div>
             <div className="flex mt-8 items-center gap-5">
               <a href="https://github.com/dwmaf" target="_blank">
-                <img src="/github.png" alt="github" className="w-6 h-6" />
+                <Github
+                  size={24}
+                  className="text-teal-500 hover:text-teal-300"
+                />
               </a>
-              <a href="https://linkedin.com/in/dawam-agung-fathoni" target="_blank">
-                <img src="/linkedin.png" alt="linkedin" className="w-6 h-6" />
+              <a
+                href="https://linkedin.com/in/dawam-agung-fathoni"
+                target="_blank"
+              >
+                <Linkedin
+                  size={24}
+                  className="text-teal-500 hover:text-teal-300"
+                />
               </a>
               <a href="https://www.instagram.com/dwmaf/" target="_blank">
-                <img src="/ig.png" alt="instagram" className="w-6 h-6" />
+                <Instagram
+                  size={24}
+                  className="text-teal-500 hover:text-teal-300"
+                />
               </a>
             </div>
           </div>
@@ -107,7 +120,12 @@ export function Home() {
               <Experiences ref={section2Ref} />
               <Projects ref={section3Ref} />
             </div>
-            <a href="/login" className="text-sm text-slate-400 italic mt-8 text-center lg:text-left">Simplicity is the soul of efficiency - Austin Freeman</a>
+            <a
+              href="/login"
+              className="text-sm text-slate-400 italic mt-8 text-center lg:text-left"
+            >
+              Simplicity is the soul of efficiency - Austin Freeman
+            </a>
           </div>
         </div>
       </body>

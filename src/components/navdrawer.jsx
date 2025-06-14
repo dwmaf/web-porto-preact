@@ -3,7 +3,7 @@ import { Link, route } from "preact-router";
 import {
   Feather,
   Award,
-  File,
+  FileText,
   BarChart2,
   Sidebar,
   LogOut,
@@ -12,7 +12,7 @@ import {
 import supabase from "../../supabaseClient";
 
 export function NavDrawer() {
-  const [isOpen, setSidebarOpen] = useState(false);
+  const [isOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => {
     setSidebarOpen(!isOpen);
   };
@@ -113,7 +113,7 @@ export function NavDrawer() {
               : ""
           }`}
       >
-        <File
+        <FileText
           size={16}
           className={`${
             ["/crudprojects", "/createproject", "/updateproject"].some((path) =>
@@ -133,50 +133,6 @@ export function NavDrawer() {
           } transition-all duration-300`}
         >
           Porjects
-        </span>
-      </a>
-      <a
-        href="/art"
-        className="w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm"
-      >
-        <Feather
-          size={16}
-          className={`${
-            location.pathname === "/arts"
-              ? " text-teal-200"
-              : "text-blue-custom"
-          }`}
-        />
-        <span
-          className={`${!isOpen && "hidden"} ${
-            location.pathname === "/asrts"
-              ? " text-teal-200"
-              : "text-blue-custom"
-          } transition-all duration-300`}
-        >
-          Arts
-        </span>
-      </a>
-      <a
-        href="/skripsiprogress"
-        className="w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm"
-      >
-        <BarChart2
-          size={16}
-          className={`${
-            location.pathname === "/skripsi"
-              ? " text-teal-200"
-              : "text-blue-custom"
-          }`}
-        />
-        <span
-          className={`${!isOpen && "hidden"} ${
-            location.pathname === "/skrips"
-              ? " text-teal-200"
-              : "text-blue-custom"
-          } transition-all duration-300`}
-        >
-          Skripsi
         </span>
       </a>
       <a
