@@ -3,31 +3,18 @@ import './index.css';
 import { App } from './app.jsx';
 import { registerSW } from 'virtual:pwa-register';
 
-const checkIfAdmin = () => {
-    return localStorage.getItem('isAdmin') === 'true';
-};
-
 const updateSW = registerSW({
   onNeedRefresh() {
     // Logika untuk memberitahu pengguna bahwa ada pembaruan
     // dan meminta mereka untuk me-refresh.
     console.log("PWA: Konten baru tersedia, perlu refresh.");
-    if (checkIfAdmin()) {
-        if (confirm("Versi baru aplikasi tersedia. Muat ulang sekarang?")) {
-          updateSW(true); // Memberitahu service worker untuk mengaktifkan versi baru dan memuat ulang
-        }
-    } else {
-        console.log("PWA: Pembaruan tersedia, notifikasi UI hanya untuk admin"); 
+    if (confirm("Versi baru aplikasi tersedia. Muat ulang sekarang?")) {
+      updateSW(true); // Memberitahu service worker untuk mengaktifkan versi baru dan memuat ulang
     }
   },
   onOfflineReady() {
     // Logika untuk memberitahu pengguna bahwa aplikasi siap digunakan secara offline.
     console.log("PWA: Aplikasi siap digunakan secara offline.");
-    if (checkIfAdmin()) {
-        console.log("PWA: Notifikasi offline ready ditampilkan untuk admin");
-    } else {
-        console.log("PWA: Aplikasi offline ready, notifikasi UI hanya untuk admin.");
-    }
     // Anda bisa menampilkan toast atau pesan kecil di sini
     // alert("Aplikasi sekarang dapat digunakan secara offline.");
   },

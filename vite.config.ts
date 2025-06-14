@@ -11,10 +11,8 @@ export default defineConfig({
       injectRegister: 'auto',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
-        importScripts: ['/custom-push-handler.js'],
         runtimeCaching: [
           {
-            urlPattern: /^https::\/\/api\.example\.com\/.*/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',
@@ -35,7 +33,16 @@ export default defineConfig({
         description: 'Website Portofolio Dawam Agung Fathoni',
         display: 'standalone',
         scope: '/',
-        start_url: '/'
+        start_url: '/',
+        theme_color: '#ffffff', // Ganti dengan warna tema aplikasi Anda
+        background_color: '#ffffff', // Ganti dengan warna latar belakang splash screen
+        icons: [
+          {
+            src: '/oc.png', // Pastikan file ini ada di folder public
+            sizes: '192x192',
+            type: 'image/png'
+          },
+        ]
       }
     }),
   ],

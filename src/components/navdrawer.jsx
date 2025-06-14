@@ -41,6 +41,7 @@ export function NavDrawer() {
 
       <Link
         href="/dashboard"
+        
         className={`w-full flex items-center gap-2 leading-none mt-10 mb-2 px-3 py-2 text-blue-custom  hover:bg-gray-700  rounded-sm 
           ${
             location.pathname === "/dashboard"
@@ -68,6 +69,7 @@ export function NavDrawer() {
       </Link>
       <Link
         href="/crudexperiences"
+        
         className={`w-full flex items-center gap-2 leading-none mb-2 px-3 py-2 hover:bg-gray-700  rounded-sm 
           ${
             ["/crudexperiences", "/createexp", "/updateexp"].some((path) =>

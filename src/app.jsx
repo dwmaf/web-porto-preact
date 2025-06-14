@@ -11,67 +11,6 @@ import { Createproject } from "./components/crudproject/createproject";
 import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
 import supabase from "../supabaseClient";
-const VAPID_PUBLIC_KEY = import.meta.env.VAPID_PUBLIC_KEY;
-function urlBase64ToUint8Array(base64String) {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
-
-async function subscribeAdminToPushNotifications() {
-  if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-    console.warn("Push messaging tidak didukung");
-    return;
-  }
-
-  try {
-    const registration = await navigator.serviceWorker.ready; // Tunggu service worker aktif
-    let subscription = await registration.pushManager.getSubscription();
-
-    if (subscription === null) {
-      console.log("Belum ada subscription, membuat yang baru...");
-      subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
-      });
-
-      console.log("Push subscription berhasil dibuat:", subscription);
-
-      // Kirim subscription ke backend (Supabase Edge Function)
-      // Ganti dengan URL Edge Function Anda
-      const response = await fetch("/api/store-push-subscription", {
-        // Nama Edge Function Anda mungkin berbeda
-        method: "POST",
-        body: JSON.stringify(subscription),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${supabase.auth.session()?.access_token}`, // Jika perlu otentikasi admin
-        },
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Gagal mengirim subscription ke server:", errorData);
-        // Mungkin hapus subscription jika gagal dikirim?
-        // await subscription.unsubscribe();
-        return;
-      }
-      console.log("Push subscription berhasil dikirim ke server.");
-      localStorage.setItem("isAdminPushSubscribed", "true");
-    } else {
-      console.log("Admin sudah subscribe ke push notifications.");
-      // Opsional: Anda bisa mengirim ulang subscription jika ingin memastikan backend memilikinya
-      // atau jika applicationServerKey berubah.
-    }
-  } catch (error) {
-    console.error("Gagal subscribe untuk push notifications:", error);
-  }
-}
 
 export function App() {
   const [session, setSession] = useState(null);
@@ -80,41 +19,13 @@ export function App() {
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
       // Ganti nama variabel agar tidak konflik
       setSession(currentSession);
-      if (
-        currentSession &&
-        localStorage.getItem("isPwaAdmin") === "true" &&
-        !localStorage.getItem("isAdminPushSubscribed")
-      ) {
-        // Jika admin dan belum subscribe (atau ingin memastikan)
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            subscribeAdminToPushNotifications();
-          } else {
-            console.warn("Izin notifikasi tidak diberikan oleh admin.");
-          }
-        });
-      }
     });
 
     const {
-      data: { subscription: authSubscription }, // Ganti nama variabel
+      data: { subscription: authSubscription },
     } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      // Ganti nama variabel
       setSession(newSession);
-      if (newSession && localStorage.getItem("isPwaAdmin") === "true") {
-        // Admin baru saja login atau sesi diperbarui
-        if (!localStorage.getItem("isAdminPushSubscribed")) {
-          Notification.requestPermission().then((permission) => {
-            if (permission === "granted") {
-              subscribeAdminToPushNotifications();
-            } else {
-              console.warn("Izin notifikasi tidak diberikan oleh admin.");
-            }
-          });
-        }
-      } else if (!newSession) {
-        // Admin logout, hapus status push subscribed
-        localStorage.removeItem("isAdminPushSubscribed");
+      if (!newSession) {
         const publicRoutes = ["/", "/login"];
         const currentPath = window.location.pathname;
         if (!publicRoutes.includes(currentPath)) {
