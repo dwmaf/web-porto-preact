@@ -13,5 +13,6 @@
   { "id": 11, "techname": "Preact", "icon_source":"/preact.png" , "bg-spesial":"bg-violet-400"},
   { "id": 12, "techname": "Supabase", "icon_source":"/supabase.png" , "bg-spesial":"bg-green-950"},
   { "id": 13, "techname": "PostgreSQL", "icon_source":"/postgresql.png" , "bg-spesial":"bg-blue-300"},
-  { "id": 14, "techname": "HTML", "icon_source":"/html.png" , "bg-spesial":"bg-red-300"}
+  { "id": 14, "techname": "HTML", "icon_source":"/html.png" , "bg-spesial":"bg-red-300"},
+  { "id": 15, "techname": "PWA", "icon_source":"/pwa.png" , "bg-spesial":"bg-violet-400"}
 ]
