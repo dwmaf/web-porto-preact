@@ -9,10 +9,6 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
-        runtimeCaching: [],
-      },
       manifest: {
         name: 'Portofolio Dawam Agung Fathoni',
         short_name: 'Porto Dawam',
