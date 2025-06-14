@@ -11,21 +11,7 @@ export default defineConfig({
       injectRegister: 'auto',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
-        runtimeCaching: [
-          {
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'api-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 7,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          }
-        ],
+        runtimeCaching: [],
       },
       manifest: {
         name: 'Portofolio Dawam Agung Fathoni',
@@ -42,8 +28,8 @@ export default defineConfig({
             sizes: '192x192',
             type: 'image/png'
           },
-        ]
-      }
+        ],
+      },
     }),
   ],
 });
