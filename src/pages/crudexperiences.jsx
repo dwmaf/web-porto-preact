@@ -15,7 +15,7 @@ export function Crudexperiences() {
   }, []);
 
   async function getExperiences() {
-    const { data } = await supabase.from("experiences").select();
+    const { data } = await supabase.from("experiences").select().order('date', {ascending: false});
     setExperiences(data);
   }
 

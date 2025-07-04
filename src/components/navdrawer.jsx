@@ -12,11 +12,7 @@ import {
 import supabase from "../../supabaseClient";
 
 export function NavDrawer() {
-  const [isOpen, setSidebarOpen] = useState(true);
-  const toggleSidebar = () => {
-    setSidebarOpen(!isOpen);
-  };
-
+  const [isOpen, setSidebarOpen] = useState(false);
   const handleLogout = async () => {
     try {
       // Melakukan logout dengan Supabase
@@ -29,14 +25,15 @@ export function NavDrawer() {
   };
   return (
     <aside
+    onMouseEnter={() => setSidebarOpen(true)}
+    onMouseLeave={() => setSidebarOpen(false)}
       className={` h-max-screen bg-gray-800 p-3 transform transition-all duration-300 ${
         isOpen ? "w-48 translate-x-0" : "w-16 translate-x-0"
       }`}
     >
       <Sidebar
         size={16}
-        onClick={toggleSidebar}
-        className="text-blue-custom cursor-pointer mb-2 absolute top-6 right-6"
+        className="text-blue-custom mb-2 absolute top-6 right-6"
       />
 
       <Link

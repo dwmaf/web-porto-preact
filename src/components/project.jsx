@@ -6,9 +6,9 @@ export function Project({ thumbnail, appname, description, techs, alt }) {
       <img
         src={thumbnailData[thumbnail].thumb_source}
         alt={alt}
-        className="w-full max-h-80 object-cover object-top rounded-md border border-teal-200 mb-3 text-teal-100"
+        className="w-full max-h-80 object-cover object-top rounded-md border border-cyan-200 mb-3 text-cyan-100"
       />
-      <h5 className="mb-2 text-teal-500 text-lg font-bold flex items-center gap-2">
+      <h5 className="mb-2 text-cyan-500 text-lg font-bold flex items-center gap-2">
         {appname}
       </h5>
       <p className="mb-2 text-blue-custom text-sm w-full">{description}</p>

@@ -1,10 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-body {
-  background: #0f172a;
-  font-family: 'League Spartan', sans-serif;
+@theme {
+  /* Mendefinisikan font sebagai CSS Custom Property */
+  --font-sans: "League Spartan", sans-serif; /* Pastikan ada kutip jika nama font punya spasi */
+  --font-pixel: "Press Start 2P", monospace; /* Ini adalah perbaikan utamanya */
+
+  /* Mendefinisikan warna sebagai CSS Custom Property */
+  --color-blue-custom: #94a3b8;
 }
 
-.text-blue-custom{
-  color: #94a3b8;
+
+@layer base {
+  body {
+    /* Aturan ini sekarang akan berfungsi dengan benar */
+    @apply bg-slate-900 font-sans;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

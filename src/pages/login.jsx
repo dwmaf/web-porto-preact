@@ -1,11 +1,13 @@
 import { useState, useRef } from "preact/hooks";
 import supabase from "../../supabaseClient";
+import { Eye, EyeOff } from "feather-icons-react";
 import "../app.css";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -61,18 +63,29 @@ export function Login() {
             <label htmlFor="password" className=" text-sm text-teal-300 mb-2">
               Password
             </label>
+            <div className="relative">
             <input
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               value={password}
               onInput={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 bg-slate-800 text-teal-500 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500"
               required
             />
-          </div>
-
-          
+            <button
+                type="button" // Penting agar tidak submit form
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-teal-300"
+              >
+                {showPassword ? (
+                  <EyeOff size={18} />
+                ) : (
+                  <Eye size={18} />
+                )}
+              </button>
+            </div>
+          </div>          
           <button
             type="submit"
             className="w-full py-2 bg-teal-700 text-white rounded-lg hover:bg-teal-900 outline-none cursor-pointer"

@@ -17,7 +17,7 @@ export function Crudprojects() {
   }, []);
 
   async function getProjects() {
-    const { data } = await supabase.from("projects").select();
+    const { data } = await supabase.from("projects").select().order('date', {ascending: false});
     setProjects(data);
   }
 

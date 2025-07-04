@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Thumbnail: Scam Detection AI</title>
+    <!-- Memuat Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Ikon (Lucide) -->
+    <script src="https://unpkg.com/lucide-static@latest/dist/lucide.js"></script>
+    <style>
+      /* Font kustom untuk tampilan yang lebih baik */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #020617; /* slate-950 */
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen p-4">
+    <!-- KONTENER UTAMA UNTUK SCREENSHOT -->
+    <div
+      class="max-w-4xl w-full bg-slate-900 border border-slate-700 rounded-xl p-10 shadow-2xl shadow-cyan-500/10"
+    >
+      <!-- Judul Proyek -->
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-extrabold text-cyan-400">
+          AI-Powered Scam & Spam Detection
+        </h2>
+        <p class="text-slate-400 mt-1">ML Engineer Contribution</p>
+      </div>
+
+      <!-- Grid 3 Kolom: Problem, Solution, Results -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Kolom 1: The Problem -->
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="alert-triangle" class="text-cyan-400"></i>
+            <h3 class="text-lg font-bold text-slate-200">The Problem</h3>
+          </div>
+          <p class="text-slate-400 text-sm">
+            Users are constantly exposed to digital threats from unsolicited
+            messages, making it difficult to distinguish legitimate texts from
+            malicious scams and spam.
+          </p>
+        </div>
+
+        <!-- Kolom 2: The Solution -->
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="cpu" class="text-cyan-400"></i>
+            <h3 class="text-lg font-bold text-slate-200">The Solution</h3>
+          </div>
+          <p class="text-slate-400 text-sm">
+            Developed a multi-class text classification model using NLP
+            (Transformer architecture) to analyze message content and accurately
+            categorize it in real-time.
+          </p>
+        </div>
+
+        <!-- Kolom 3: Key Results -->
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="check-circle" class="text-cyan-400"></i>
+            <h3 class="text-lg font-bold text-slate-200">Key Results</h3>
+          </div>
+          <p class="text-slate-400 text-sm">
+            The model achieved high performance in identifying threats,
+            significantly improving user safety.
+          </p>
+          <div
+            class="mt-2 bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2"
+          >
+            <span class="text-xs text-slate-400">F1-Score</span>
+            <p class="text-2xl font-bold text-cyan-300">0.95</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualisasi: Confusion Matrix -->
+      <div class="mt-10">
+        <h4 class="text-center text-sm font-semibold text-slate-300 mb-3">
+          Model Performance Breakdown
+        </h4>
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-xs"
+        >
+          <p class="text-center text-slate-400 mb-2 font-bold">Predicted Class</p>
+          <div class="flex">
+            <p
+              class="w-16 -rotate-90 whitespace-nowrap text-center text-slate-400 font-bold"
+            >
+              Actual Class
+            </p>
+            <table class="w-full table-fixed text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="font-semibold text-slate-300 p-2">Normal</th>
+                  <th class="font-semibold text-slate-300 p-2">Spam</th>
+                  <th class="font-semibold text-slate-300 p-2">Scam</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-300 p-2">Normal</td>
+                  <td
+                    class="bg-teal-500/20 text-teal-300 font-bold rounded-md p-2"
+                  >
+                    98%
+                  </td>
+                  <td class="text-slate-400 p-2">2%</td>
+                  <td class="text-slate-400 p-2">0%</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-300 p-2">Spam</td>
+                  <td class="text-slate-400 p-2">3%</td>
+                  <td
+                    class="bg-teal-500/20 text-teal-300 font-bold rounded-md p-2"
+                  >
+                    96%
+                  </td>
+                  <td class="text-slate-400 p-2">1%</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-300 p-2">Scam</td>
+                  <td class="text-slate-400 p-2">1%</td>
+                  <td class="text-slate-400 p-2">4%</td>
+                  <td
+                    class="bg-teal-500/20 text-teal-300 font-bold rounded-md p-2"
+                  >
+                    95%
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
