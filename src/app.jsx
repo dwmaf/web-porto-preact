@@ -3,6 +3,7 @@ import "./app.css";
 import { Home } from "./pages/home";
 import { Test } from "./pages/test";
 import { Test2 } from "./pages/test2";
+import { Test3 } from "./pages/test3";
 import { Login } from "./pages/login";
 import { Dashboard } from "./pages/dashboard";
 import { Crudexperiences } from "./pages/crudexperiences";
@@ -57,6 +58,7 @@ export function App() {
         <Route path="/" component={Home} />
         <Route path="/test" component={Test} />
         <Route path="/test2" component={Test2} />
+        <Route path="/test3" component={Test3} />
         <Route
           path="/login"
           component={(props) => {

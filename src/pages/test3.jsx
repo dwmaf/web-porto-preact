@@ -3,7 +3,7 @@ import "../app.css";
 import { Instagram, Github, Linkedin, ArrowUpRight, Mail } from "feather-icons-react";
 
 // Komponen utama portofolio
-export function Test() {
+export function Test3() {
   // Fungsi untuk mengirim event ke Google Analytics
   const handleButtonClick = () => {
     // Pastikan fungsi gtag ada di window (script Google Analytics sudah dimuat)
