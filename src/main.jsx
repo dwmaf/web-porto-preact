@@ -12,12 +12,12 @@ const updateSW = registerSW({
       updateSW(true); // Memberitahu service worker untuk mengaktifkan versi baru dan memuat ulang
     }
   },
-  onOfflineReady() {
-    // Logika untuk memberitahu pengguna bahwa aplikasi siap digunakan secara offline.
-    console.log("PWA: Aplikasi siap digunakan secara offline.");
-    // Anda bisa menampilkan toast atau pesan kecil di sini
-    // alert("Aplikasi sekarang dapat digunakan secara offline.");
-  },
+  // onOfflineReady() {
+  //   // Logika untuk memberitahu pengguna bahwa aplikasi siap digunakan secara offline.
+  //   console.log("PWA: Aplikasi siap digunakan secara offline.");
+  //   // Anda bisa menampilkan toast atau pesan kecil di sini
+  //   // alert("Aplikasi sekarang dapat digunakan secara offline.");
+  // },
   onRegistered(registration) {
     // Logika setelah service worker berhasil didaftarkan.
     console.log('PWA: Service Worker berhasil didaftarkan.', registration);
