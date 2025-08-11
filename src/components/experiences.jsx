@@ -1,23 +1,23 @@
 import { useState, useEffect, forwardRef, useRef } from "preact/compat";
 import { Exp } from "./exp";
 import { Subheader } from "./subheader";
-import supabase from "../../supabaseClient";
+// import supabase from "../../supabaseClient";
 export const Experiences = forwardRef((props, ref) => {
-  const [experiences, setExperiences] = useState([]);
+  // const [experiences, setExperiences] = useState([]);
   // 2. Tambahkan state yang dibutuhkan oleh Subheader
   const [hoverStates, setHoverStates] = useState([
     { isHovering: false, wasHovering: false },
   ]);
-  useEffect(() => {
-    getExperiences();
-  }, []);
-  async function getExperiences() {
-    const { data } = await supabase
-      .from("experiences")
-      .select()
-      .order("date", { ascending: true });
-    setExperiences(data);
-  }
+  // useEffect(() => {
+  //   getExperiences();
+  // }, []);
+  // async function getExperiences() {
+  //   const { data } = await supabase
+  //     .from("experiences")
+  //     .select()
+  //     .order("date", { ascending: true });
+  //   setExperiences(data);
+  // }
 
   return (
     <section>

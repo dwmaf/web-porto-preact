@@ -33,8 +33,7 @@ export function Home() {
 
   return (
     <>
-      <body className="min-h-screen gap-3 w-full items-start">
-        <div className=" lg:flex lg:justify-between lg:gap-8 md:px-12 md:py-16  lg:px-5 lg:py-0">
+        <div className="min-h-screen lg:flex lg:justify-between lg:gap-8 md:px-12 md:py-16 p-2 lg:px-5 lg:py-0">
           <div
             id="kiri"
             className=" lg:w-1/2 lg:flex-col lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:justify-center lg:pt-5"
@@ -114,16 +113,14 @@ export function Home() {
               <Skills ref={section2Ref} />
               <Projects ref={section3Ref} />
             </div>
-            <a
-              href="/login"
+            <p
+              
               className="text-sm text-slate-400 italic mt-8 text-center lg:text-left"
             >
               Simplicity is the soul of efficiency - Austin Freeman
-            </a>
+            </p>
           </div>
         </div>
-
-      </body>
     </>
   );
 }
