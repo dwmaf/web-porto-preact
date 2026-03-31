@@ -2,10 +2,11 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import preact from '@preact/preset-vite'
 import { VitePWA } from 'vite-plugin-pwa';
+import galleryPlugin from './vite-plugin-gallery.js';
 
 export default defineConfig({
   plugins: [
-    tailwindcss(), preact(),
+    tailwindcss(), preact(), galleryPlugin(),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',

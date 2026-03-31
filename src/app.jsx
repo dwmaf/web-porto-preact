@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "preact/hooks";
 import "./app.css";
 import { Home } from "./pages/home";
+import { ProjectDetail } from "./pages/project-detail";
 // import { Test } from "./pages/test";
 // import { Test2 } from "./pages/test2";
 // import { Test3 } from "./pages/test3";
@@ -13,7 +14,7 @@ import { Home } from "./pages/home";
 // import { Createproject } from "./components/crudproject/createproject";
 // import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
-import supabase from "../supabaseClient";
+// import supabase from "../supabaseClient";
 
 export function App() {
   // const [session, setSession] = useState(null);
@@ -56,6 +57,7 @@ export function App() {
       <Router>
         {/* Middleware public */}
         <Route path="/" component={Home} />
+        <Route path="/project/:slug" component={ProjectDetail} />
         {/* <Route path="/test" component={Test} />
         <Route path="/test2" component={Test2} />
         <Route path="/test3" component={Test3} /> */}

@@ -1,23 +1,12 @@
 import { useState, useEffect, forwardRef, useRef } from "preact/compat";
 import { Exp } from "./exp";
 import { Subheader } from "./subheader";
-// import supabase from "../../supabaseClient";
 export const Experiences = forwardRef((props, ref) => {
-  // const [experiences, setExperiences] = useState([]);
-  // 2. Tambahkan state yang dibutuhkan oleh Subheader
+  
   const [hoverStates, setHoverStates] = useState([
     { isHovering: false, wasHovering: false },
   ]);
-  // useEffect(() => {
-  //   getExperiences();
-  // }, []);
-  // async function getExperiences() {
-  //   const { data } = await supabase
-  //     .from("experiences")
-  //     .select()
-  //     .order("date", { ascending: true });
-  //   setExperiences(data);
-  // }
+  
 
   return (
     <section>
@@ -33,15 +22,26 @@ export const Experiences = forwardRef((props, ref) => {
 
         <div className="flex flex-col gap-4">
           <Exp
-            key={1}
+            key={0}
             duration={"6 months"}
-            timestamp={"July 2025 - Jan 2026"}
-            position={"Ai and Data Engineer"}
+            timestamp={"Jan - Juny 2026"}
+            position={"Web Developer"}
+            place={"UPA PK2 UNTAN"}
+            description={
+              "Saya bertugas sebagai web developer untuk membangun website self printing dan presensi menggunakan fingerprint di UPA PK2 UNTAN"
+            }
+            techs={["php","laravel","vue","react"]}
+          />
+          <Exp
+            key={1}
+            duration={"1 months"}
+            timestamp={"July - Aug 2025"}
+            position={"Google Analytics"}
             place={"Studyo io (Remote)"}
             description={
-              "Saya bertugas sebagai ai engineer yang membangun reinforcement learning untuk mempersonalisasi pembelajaran adaptif pada platform android untuk belajar matematika dan mengelola google analytic"
+              "Saya bertugas mengelola google analytic pada sebuah platform android belajar matematika"
             }
-            techs={["tensorflow", "google analytics"]}
+            techs={["google analytics"]}
           />
           <Exp
             key={2}

@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-86c9b217'], (function (workbox) { 'use strict';
+define(['./workbox-5119daf5'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -79,7 +79,7 @@ define(['./workbox-86c9b217'], (function (workbox) { 'use strict';
    */
   workbox.precacheAndRoute([{
     "url": "index.html",
-    "revision": "0.d6f37ni7i88"
+    "revision": "0.7h7be6503p"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
