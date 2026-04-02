@@ -1,8 +1,10 @@
 import { route } from "preact-router";
 import techData from "../assets/techs.json";
 import thumbnailData from "../assets/thumbnails.json";
+import { useLanguage, t } from "../context/language-context";
 
 export function Project({ thumbnail, appname, description, techs, alt, slug }) {
+  const { language } = useLanguage();
   const handleClick = () => {
     route(`/project/${slug}`);
   };
@@ -31,7 +33,7 @@ export function Project({ thumbnail, appname, description, techs, alt, slug }) {
       <h5 className="mb-2 text-cyan-500 text-lg font-bold flex items-center gap-2 group-hover:text-cyan-400 transition-colors">
         {appname}
       </h5>
-      <p className="mb-2 text-blue-custom text-sm w-full line-clamp-3">{description}</p>
+      <p className="mb-2 text-blue-custom text-sm w-full line-clamp-3">{t(description, language)}</p>
       <hr className="w-full border-t-1 border-gray-600 opacity-50 mb-3" />
       <div className="flex flex-wrap gap-3">
         {techs.map((techId, index) => (

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "preact/hooks";
 import { route } from "preact-router";
-import { getProjectBySlug } from "../data/projects-data";
+import { getProjectBySlug as getMainProject } from "../data/projects-data";
+import { getProjectBySlug as getPersonalProject } from "../data/personal-projects-data";
 import {
   ArrowLeft,
   ExternalLink,
@@ -8,16 +9,18 @@ import {
   User,
   Layers,
 } from "feather-icons-react";
+import { useLanguage, t } from "../context/language-context";
 import techData from "../assets/techs.json";
 import thumbnailData from "../assets/thumbnails.json";
 
 export function ProjectDetail({ slug }) {
+  const { language } = useLanguage();
   const [project, setProject] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const heroRef = useRef(null);
 
   useEffect(() => {
-    const p = getProjectBySlug(slug);
+    const p = getMainProject(slug) || getPersonalProject(slug);
     if (!p) {
       route("/", true);
       return;
@@ -71,7 +74,7 @@ export function ProjectDetail({ slug }) {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">    
+      <div className="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 py-10">    
           <div className="mb-10">
             <h1 className="text-3xl sm:text-4xl font-bold text-slate-100 leading-tight mb-3">
               {project.appname}
@@ -86,8 +89,8 @@ export function ProjectDetail({ slug }) {
                 <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-4">
                   About This Project
                 </h3>
-                <p className="text-slate-300 leading-relaxed text-base">
-                  {project.description}
+                <p className="text-slate-300 leading-relaxed text-base text-justify">
+                  {t(project.description, language)}
                 </p>
               </div>
             </div>
@@ -108,7 +111,7 @@ export function ProjectDetail({ slug }) {
                         Role
                       </p>
                       <p className="text-slate-200 text-sm font-medium mt-0.5">
-                        {project.role}
+                        {t(project.role, language)}
                       </p>
                     </div>
                   </div>
@@ -151,6 +154,21 @@ export function ProjectDetail({ slug }) {
                     </div>
                   ))}
                 </div>
+
+                {/* Visit Website Button */}
+                {project.link && (
+                  <div className="mt-8">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all duration-300 group"
+                    >
+                      Visit Website
+                      <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>

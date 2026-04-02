@@ -1,8 +1,6 @@
 import { useState, useEffect, forwardRef } from "preact/compat";
-import { Exp } from "./exp";
 import { Subheader } from "./subheader";
 import techData from "../assets/techs.json";
-import supabase from "../../supabaseClient";
 
 export const Skills = forwardRef((props, ref) => {
   const [hoverStates, setHoverStates] = useState([
@@ -12,8 +10,8 @@ export const Skills = forwardRef((props, ref) => {
     <>
       <div>
         <Subheader
-          label="SKILLS"
-          index={0} // Karena ini satu-satunya, index-nya 0
+          label={{ id: "KEAHLIAN", en: "TECH STACK" }}
+          index={0}
           hoverStates={hoverStates}
           setHoverStates={setHoverStates}
           // onClick bisa dikosongkan jika tidak ada aksi

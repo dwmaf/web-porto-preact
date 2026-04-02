@@ -13,7 +13,7 @@ export const Projects = forwardRef((props, ref) => {
     <>
       <div>
         <Subheader
-          label="PROJECTS"
+          label={{ id: "PROYEK", en: "PROJECTS" }}
           index={0}
           hoverStates={hoverStates}
           setHoverStates={setHoverStates}

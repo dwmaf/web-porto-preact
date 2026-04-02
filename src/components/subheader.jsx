@@ -1,5 +1,8 @@
+import { useLanguage, t } from "../context/language-context";
+
 // NavButton.jsx
 export function Subheader({ label, onClick, index, hoverStates, setHoverStates }) {
+  const { language } = useLanguage();
   const handleMouseEnter = () => {
     const newStates = [...hoverStates];
     newStates[index].isHovering = true;
@@ -32,7 +35,7 @@ export function Subheader({ label, onClick, index, hoverStates, setHoverStates }
         onClick={onClick}
         className="text-blue-200 text-lg font-bold hover:text-white relative overflow-hidden"
       >
-        {label}
+        {t(label, language)}
         <span
           className={`absolute left-0 bottom-1 w-full h-[2px] bg-red-500 transform origin-left scale-x-0 transition-all duration-300 ${
             isHovering

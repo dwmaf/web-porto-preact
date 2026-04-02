@@ -14,7 +14,7 @@ import { ProjectDetail } from "./pages/project-detail";
 // import { Createproject } from "./components/crudproject/createproject";
 // import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
-// import supabase from "../supabaseClient";
+import { LanguageProvider } from "./context/language-context";
 
 export function App() {
   // const [session, setSession] = useState(null);
@@ -53,7 +53,7 @@ export function App() {
   // };
 
   return (
-    <>
+    <LanguageProvider>
       <Router>
         {/* Middleware public */}
         <Route path="/" component={Home} />
@@ -121,6 +121,6 @@ export function App() {
           )}
         /> */}
       </Router>
-    </>
+    </LanguageProvider>
   );
 }
