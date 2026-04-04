@@ -1,7 +1,14 @@
 import { useLanguage, t } from "../context/language-context";
 
 // NavButton.jsx
-export function Subheader({ label, onClick, index, hoverStates, setHoverStates }) {
+export function Subheader({
+  label,
+  onClick,
+  index,
+  hoverStates,
+  setHoverStates,
+  number,
+}) {
   const { language } = useLanguage();
   const handleMouseEnter = () => {
     const newStates = [...hoverStates];
@@ -27,31 +34,28 @@ export function Subheader({ label, onClick, index, hoverStates, setHoverStates }
 
   return (
     <div
-      className="flex items-center gap-3 mb-4"
+      className="flex items-center mb-5 ml-2"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <button
         onClick={onClick}
-        className="text-blue-200 text-lg font-bold hover:text-white relative overflow-hidden"
+        className="text-cyan-600 dark:text-cyan-400 text-2xl font-bold relative overflow-hidden text-left flex items-center gap-4 pb-1 transition-colors"
       >
-        {t(label, language)}
+        {number && (
+          <div className="flex items-center gap-2">
+            <span className="font-medium w-7 h-[1px] bg-slate-400 dark:bg-slate-500 transition-colors" />
+            <span className="font-['Geist_Mono',_monospace] text-sm text-slate-500 dark:text-slate-400 tracking-widest whitespace-nowrap">
+              {number}. /
+            </span>
+          </div>
+        )}
+        <span className="hover:text-cyan-800 dark:hover:text-cyan-200">{t(label, language).toUpperCase()}</span>
         <span
-          className={`absolute left-0 bottom-1 w-full h-[2px] bg-red-500 transform origin-left scale-x-0 transition-all duration-300 ${
-            isHovering
-              ? "transform scale-x-100 origin-left"
-              : wasHovering
-              ? "transform scale-x-0 origin-left translate-x-full transition-all duration-300"
-              : "transform scale-x-0 origin-left"
-          }`}
-        />
-        <span
-          className={`absolute left-0 bottom-[2px] w-full h-[2px] bg-blue-500 origin-left scale-x-0 ${
-            isHovering
-              ? "origin-left"
-              : wasHovering
-              ? "origin-left"
-              : "transform scale-x-100 origin-left translate-x-full duration-600"
+          className={`absolute bottom-0 h-[2px] bg-teal-400 dark:bg-teal-500 w-full ${
+            isHovering || wasHovering ? "transition-all duration-300" : ""
+          } ${
+            isHovering ? "left-0" : wasHovering ? "left-full" : "-left-full"
           }`}
         />
       </button>

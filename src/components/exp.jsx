@@ -1,27 +1,52 @@
 import { useLanguage, t } from "../context/language-context";
+import techData from "../assets/techs.json";
 
-export function Exp({ timestamp, duration, position, place, description, techs }) {
+export function Exp({
+  timestamp,
+  duration,
+  position,
+  place,
+  description,
+  techs,
+}) {
   const { language } = useLanguage();
   return (
-    <div className=" bg-slate-950 p-4 rounded-2xl">
-      <h6 className="flex items-center w-full text-blue-custom text-sm mb-2 gap-1">
+    <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-transparent shadow-sm dark:shadow-none transition-all">
+      <h6 className="flex items-center w-full text-slate-500 dark:text-blue-custom text-sm mb-2 gap-1 transition-colors">
         <span>{timestamp}</span>
         <span className="text-xs leading-none">•</span>
         <span>{t(duration, language)} </span>
       </h6>
-      <h6 className="mb-2 text-cyan-500 font-bold text-lg flex items-center gap-2">
+      <h6 className="mb-2 text-cyan-600 dark:text-cyan-500 font-bold text-lg flex items-center gap-2 transition-colors">
         <span>{t(position, language)}</span>
         <span className="text-xs leading-none">•</span>
         <span>{place}</span>
       </h6>
-      <p className="mb-2 text-blue-custom text-sm w-full text-justify">{t(description, language)}</p>
-      <hr className="w-full border-t-1 border-gray-600 opacity-50 mb-3" />
-      <div className="flex gap-2 text-sm">
-        {techs.map((tech, index) => (
-          <div key={index} className="rounded-md bg-cyan-950 text-cyan-300 py-1 px-2">
-            {tech}
-          </div>
-        ))}
+      <p className="mb-2 text-slate-600 dark:text-blue-custom text-sm w-full text-justify transition-colors">
+        {t(description, language)}
+      </p>
+      {/* <hr className="w-full border-t-1 border-slate-200 dark:border-gray-600 opacity-50 mb-3 transition-colors" /> */}
+      <div className="flex flex-wrap gap-1 sm:gap-3">
+        {techs.map((techId) => {
+          const tech = techData.find((t) => t.id === techId);
+          if (!tech) return null;
+
+          return (
+            <div className="flex items-center" key={techId}>
+              <div className="py-1 sm:py-2 px-2 sm:px-3 gap-2 rounded-2xl flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-transparent">
+                <img
+                  src={tech.icon_source}
+                  loading="lazy"
+                  alt={tech.techname}
+                  className={`h-4`}
+                />
+                <span className="text-sm text-slate-800 dark:text-white">
+                  {tech.techname}
+                </span>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

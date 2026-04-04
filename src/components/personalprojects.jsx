@@ -15,6 +15,7 @@ export const PersonalProjects = forwardRef((props, ref) => {
         <Subheader
           label={{ id: "PROYEK PRIBADI", en: "PERSONAL PROJECTS" }}
           index={0}
+          number="04"
           hoverStates={hoverStates}
           setHoverStates={setHoverStates}
           onClick={() => {}}

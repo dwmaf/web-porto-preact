@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "preact/hooks";
 import "./app.css";
 import { Home } from "./pages/home";
+import { Archive } from "./pages/archive";
 import { ProjectDetail } from "./pages/project-detail";
 // import { Test } from "./pages/test";
 // import { Test2 } from "./pages/test2";
@@ -15,6 +16,7 @@ import { ProjectDetail } from "./pages/project-detail";
 // import { Updateproject } from "./components/crudproject/updateproject";
 import { Router, Route, route } from "preact-router";
 import { LanguageProvider } from "./context/language-context";
+import { ThemeProvider } from "./context/theme-context";
 
 export function App() {
   // const [session, setSession] = useState(null);
@@ -54,73 +56,76 @@ export function App() {
 
   return (
     <LanguageProvider>
-      <Router>
-        {/* Middleware public */}
-        <Route path="/" component={Home} />
-        <Route path="/project/:slug" component={ProjectDetail} />
-        {/* <Route path="/test" component={Test} />
-        <Route path="/test2" component={Test2} />
-        <Route path="/test3" component={Test3} /> */}
-        {/* <Route
-          path="/login"
-          component={(props) => {
-            if (session) {
-              useEffect(() => {
-                route("/dashboard", true);
-              }, []);
-              return null;
-            }
-            return <Login {...props} />;
-          }}
-        /> */}
+      <ThemeProvider>
+        <Router>
+          {/* Middleware public */}
+          <Route path="/" component={Home} />
+          <Route path="/archive" component={Archive} />
+          <Route path="/project/:slug" component={ProjectDetail} />
+          {/* <Route path="/test" component={Test} />
+          <Route path="/test2" component={Test2} />
+          <Route path="/test3" component={Test3} /> */}
+          {/* <Route
+            path="/login"
+            component={(props) => {
+              if (session) {
+                useEffect(() => {
+                  route("/dashboard", true);
+                }, []);
+                return null;
+              }
+              return <Login {...props} />;
+            }}
+          /> */}
 
-        {/* Middleware authenticated */}
-        {/* <Route path="/dashboard" component={Dashboard} />
-        <Route path="/crudexperiences" component={Crudexperiences} />
-        <Route path="/createexp" component={Createexp} /> */}
-        {/* <Route
-          path="/dashboard"
-          component={(props) => (
-            <ProtectedRoute component={Dashboard} {...props} />
-          )}
-        />
-        <Route
-          path="/crudexperiences"
-          component={(props) => (
-            <ProtectedRoute component={Crudexperiences} {...props} />
-          )}
-        />
-        <Route
-          path="/crudprojects"
-          component={(props) => (
-            <ProtectedRoute component={Crudprojects} {...props} />
-          )}
-        />
-        <Route
-          path="/createexp"
-          component={(props) => (
-            <ProtectedRoute component={Createexp} {...props} />
-          )}
-        />
-        <Route
-          path="/updateexp/:id"
-          component={(props) => (
-            <ProtectedRoute component={Updateexp} {...props} />
-          )}
-        />
-        <Route
-          path="/createproject"
-          component={(props) => (
-            <ProtectedRoute component={Createproject} {...props} />
-          )}
-        />
-        <Route
-          path="/updateproject/:id"
-          component={(props) => (
-            <ProtectedRoute component={Updateproject} {...props} />
-          )}
-        /> */}
-      </Router>
+          {/* Middleware authenticated */}
+          {/* <Route path="/dashboard" component={Dashboard} />
+          <Route path="/crudexperiences" component={Crudexperiences} />
+          <Route path="/createexp" component={Createexp} /> */}
+          {/* <Route
+            path="/dashboard"
+            component={(props) => (
+              <ProtectedRoute component={Dashboard} {...props} />
+            )}
+          />
+          <Route
+            path="/crudexperiences"
+            component={(props) => (
+              <ProtectedRoute component={Crudexperiences} {...props} />
+            )}
+          />
+          <Route
+            path="/crudprojects"
+            component={(props) => (
+              <ProtectedRoute component={Crudprojects} {...props} />
+            )}
+          />
+          <Route
+            path="/createexp"
+            component={(props) => (
+              <ProtectedRoute component={Createexp} {...props} />
+            )}
+          />
+          <Route
+            path="/updateexp/:id"
+            component={(props) => (
+              <ProtectedRoute component={Updateexp} {...props} />
+            )}
+          />
+          <Route
+            path="/createproject"
+            component={(props) => (
+              <ProtectedRoute component={Createproject} {...props} />
+            )}
+          />
+          <Route
+            path="/updateproject/:id"
+            component={(props) => (
+              <ProtectedRoute component={Updateproject} {...props} />
+            )}
+          /> */}
+        </Router>
+      </ThemeProvider>
     </LanguageProvider>
   );
 }

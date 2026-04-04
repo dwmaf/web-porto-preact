@@ -6,8 +6,8 @@ export const projectsData = [
     thumbnail: 2,
     appname: "Saputipu",
     description: {
-      id: "Aplikasi Android yang dirancang untuk menganalisis dan mendeteksi apakah suatu kalimat termasuk scam, spam, atau hanya teks biasa. Dengan menggunakan teknologi artificial intelligence, aplikasi ini membantu pengguna untuk dengan cepat mengidentifikasi potensi ancaman dalam pesan yang diterima, memberikan perlindungan tambahan dari penipuan dan gangguan digital. Saya bertugas sebagai ML Engineer untuk membangun AI-nya.",
-      en: "An Android application designed to analyze and detect whether a sentence is scam, spam, or just regular text. Using artificial intelligence technology, this app helps users quickly identify potential threats in received messages, providing extra protection from digital fraud and harassment. I served as an ML Engineer to build its AI."
+      id: "Mengembangkan model Machine Learning berbasis AI untuk mendeteksi penipuan (scam/spam) pada pesan teks dengan tingkat akurasi tinggi. Berperan sebagai ML Engineer dalam merancang arsitektur AI untuk mengidentifikasi ancaman keamanan digital secara real-time, memberikan perlindungan proaktif bagi pengguna Android dari gangguan cyber.",
+      en: "Developed an AI-based Machine Learning model to detect text message fraud (scam/spam) with high accuracy. Served as an ML Engineer to design the AI architecture for real-time security threat identification, providing proactive protection for Android users against cyber harassment."
     },
     techs: [10],
     role: { id: "ML Engineer", en: "ML Engineer" },
@@ -84,39 +84,104 @@ export const projectsData = [
     thumbnail: 4,
     appname: "Website Pendaftaran Sertifikasi LSP UNTAN",
     description: {
-      id: "Sistem Informasi Pendaftaran dan Manajemen Sertifikasi LSP UNTAN merupakan platform enterprise terpadu yang mendigitalisasi seluruh alur kerja operasional Lembaga Sertifikasi Profesi secara end-to-end. Dikembangkan dengan arsitektur Progressive Web App (PWA) serta integrasi Firebase Cloud Messaging (FCM) untuk push notification real-time, sistem ini memastikan aksesibilitas tinggi dan responsivitas informasi bagi seluruh stakeholder. Fitur utama mencakup Manajemen Dashboard Multi-Role (Admin, Asesor, Asesi), di mana Admin memiliki kontrol penuh atas pengelolaan skema kualifikasi, basis data asesor, hingga pengawasan log aktivitas sistem. Sisi Asesor dibekali alat untuk menyusun asesmen dan pengumuman yang terhubung langsung ke notifikasi pengguna. Sementara itu, sistem pelacakan status Asesi dirancang sangat mendetail, mencakup verifikasi berkas, kontrol hak akses menu asesmen, hingga pengelolaan sertifikat digital yang dapat diunduh secara instan. Platform ini mewujudkan ekosistem sertifikasi yang transparan, efisien, dan memiliki standar keamanan data yang tinggi.",
-      en: "The UNTAN LSP Certification Registration and Management Information System is an integrated enterprise platform that digitalizes the entire operational workflow of the Professional Certification Body end-to-end. Developed with Progressive Web App (PWA) architecture and Firebase Cloud Messaging (FCM) integration for real-time push notifications, this system ensures high accessibility and information responsiveness for all stakeholders. Key features include Multi-Role Dashboard Management (Admin, Assessor, Candidate), where Admins have full control over qualification scheme management, assessor databases, and system activity log monitoring. The Assessor side is equipped with tools to draft assessments and announcements linked directly to user notifications. Meanwhile, the Candidate (Asesi) status tracking system is designed in great detail, covering document verification, assessment menu access control, to instant digital certificate management. This platform creates a transparent, efficient certification ecosystem with high data security standards."
+      id: {
+        problem: [
+          "Arus data sertifikasi profesional yang masih manual dan tidak efisien.",
+          "Sulitnya koordinasi antar role admin, asesor, dan asesi secara real-time.",
+        ],
+        feature: [
+          "Enterprise Dashboard Multi-Role (Admin, Asesor, Asesi).",
+          "Integrasi Push Notification PWA menggunakan Firebase Cloud Messaging.",
+          "Sistem pelacakan status asesi dan digital sertifikat yang instan.",
+        ],
+      },
+      en: {
+        problem: [
+          "Manual and inefficient professional certification data flow.",
+          "Difficulty in real-time coordination between admin, assessor, and candidate roles.",
+        ],
+        feature: [
+          "Multi-Role Enterprise Dashboard (Admin, Assessor, Candidate).",
+          "PWA Push Notification integration using Firebase Cloud Messaging.",
+          "Instant candidate status tracking and digital certificate systems.",
+        ],
+      },
     },
     techs: [8, 5, 9, 15, 6, 4],
     role: { id: "Web Developer", en: "Web Developer" },
     year: "2025",
     link: null,
+    featured: true,
   },
   {
     slug: "website-upa-pk2-printapp",
     thumbnail: 11,
     appname: "Website Self Printing UPA PK2 UNTAN",
     description: {
-      id: "website self printing.",
-      en: "."
+      id: {
+        problem: [
+          "Optimalisasi penggunaan printer di Anjungan (Kiosk) UPA yang sebelumnya tidak terpakai.",
+          "Kebutuhan sistem kontrol cetak dokumen khusus untuk staf dan mahasiswa magang.",
+          "Kurangnya monitoring penggunaan kertas secara berkala yang menyebabkan pemborosan.",
+        ],
+        feature: [
+          "Sistem Request-Approval terpusat antara Kiosk dan Dashboard Admin.",
+          "Sinkronisasi real-time menggunakan Laravel Reverb (WebSocket) untuk akses instan.",
+          "Pelacakan otomatis jumlah lembar kertas terpakai dengan laporan bulanan terintegrasi.",
+        ],
+      },
+      en: {
+        problem: [
+          "Optimization of idle printer resources at UPA Kiosk stations.",
+          "Requirement for a controlled document printing system for interns and staff.",
+          "Lack of systematic monitoring for paper consumption and usage patterns.",
+        ],
+        feature: [
+          "Centralized Request-Approval system between Kiosk and Admin Dashboard.",
+          "Real-time synchronization powered by Laravel Reverb (WebSocket) for instant updates.",
+          "Automated paper consumption tracking with integrated monthly reporting.",
+        ],
+      },
     },
-    techs: [5, 9, 15],
+    techs: [8, 5, 9, 15, 19],
     role: "Web Developer",
     year: "2026",
     link: null,
+    featured: true,
   },
   {
     slug: "website-upa-pk2-presention",
     thumbnail: 12,
     appname: "Website Presensi UPA PK2 UNTAN",
     description: {
-      id: "website presensi menggunakan fingerprint.",
-      en: "."
+      id: {
+        problem: [
+          "Sistem presensi Barcode sebelumnya rawan manipulasi (titip presensi) antar pengguna.",
+          "Sulitnya memantau durasi kehadiran dan keterlambatan secara akurat yang berdampak pada kedisiplinan.",
+        ],
+        feature: [
+          "Integrasi biometrik Fingerprint (U.are.U) untuk menjamin validitas kehadiran pengguna.",
+          "Modul pendaftaran & verifikasi sidik jari yang dikembangkan dengan integrasi bahasa C#.",
+          "Login Admin berbasis biometrik dan Dashboard Monitoring tingkat keterlambatan yang komprehensif.",
+        ],
+      },
+      en: {
+        problem: [
+          "Previous Barcode-based system was vulnerable to attendance fraud and proxy attendance.",
+          "Difficulties in accurately monitoring attendance duration and tardiness affecting discipline.",
+        ],
+        feature: [
+          "Fingerprint biometric integration (U.are.U) to ensure the validity of user attendance.",
+          "Fingerprint enrollment and verification module developed with C# integration.",
+          "Biometric-based Admin login and comprehensive lateness monitoring dashboard.",
+        ],
+      },
     },
-    techs: [5, 9, 0],
+    techs: [8, 5, 9, 0, 18],
     role: "Web Developer",
     year: "2026",
     link: null,
+    featured: true,
   },
 
 ].map((project) => ({

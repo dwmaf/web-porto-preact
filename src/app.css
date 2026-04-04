@@ -9,11 +9,12 @@
   --color-blue-custom: #94a3b8;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
 
 @layer base {
   body {
-    /* Aturan ini sekarang akan berfungsi dengan benar */
-    @apply bg-slate-900 font-sans;
+    @apply bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300;
   }
 }
 
@@ -42,6 +43,7 @@
 
 .line-clamp-3 {
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
