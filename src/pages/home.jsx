@@ -1,4 +1,4 @@
-import { useState, useRef } from "preact/hooks";
+import { useState, useRef, useEffect } from "preact/hooks";
 import "../app.css";
 import { Skills } from "../components/skills";
 import { Experiences } from "../components/experiences";
@@ -18,8 +18,23 @@ export function Home() {
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
 
+  const [time, setTime] = useState(new Date());
   const yearsOfExperience = new Date().getFullYear() - 2023;
   const totalProjects = projectsData.length + personalProjectsData.length;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formattedTime = time.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
 
   const scrollToSection = (sectionRef) => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -53,12 +68,12 @@ export function Home() {
 
   return (
     <>
-      <div className="min-h-screen lg:flex lg:justify-between lg:gap-8 md:px-12 md:py-16 p-2 lg:px-5 lg:py-0">
+      <div className="min-h-screen lg:flex lg:justify-between lg:gap-8 pr-5 md:px-12 md:py-16 p-2 lg:px-6 lg:py-0">
         <div
           id="kiri"
           className=" lg:w-1/2 lg:flex-col lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:justify-center lg:pt-5"
         >
-          <div className="  p-2 sm:p-5">
+          <div className="p-2">
             <div
               id="badge-available-to-work"
               className="flex justify-between items-center mb-4"
@@ -151,6 +166,15 @@ export function Home() {
           <p className="text-sm text-slate-400 italic mt-8 text-center lg:text-left">
             Simplicity is the soul of efficiency - Austin Freeman
           </p>
+          <div className="mt-2 text-center lg:text-left font-['Geist_Mono',_monospace] text-[10px] sm:text-xs text-slate-500 dark:text-slate-400/80 transition-colors">
+            <div className="flex items-center justify-center lg:justify-start gap-1 sm:gap-2">
+              <span className="tracking-wider">Pontianak, Indonesia</span>
+              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <span className="tabular-nums">{formattedTime} WIB</span>
+              <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+              <span className="hidden sm:inline opacity-70">UTC +7</span>
+            </div>
+          </div>
         </div>
       </div>
     </>

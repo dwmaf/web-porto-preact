@@ -16,6 +16,17 @@
   body {
     @apply bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300;
   }
+
+  /* Hide default scrollbar but keep scroll functionality */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
 }
 
 @keyframes scroll {

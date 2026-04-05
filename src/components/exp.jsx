@@ -12,16 +12,15 @@ export function Exp({
   const { language } = useLanguage();
   return (
     <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-transparent shadow-sm dark:shadow-none transition-all">
-      <h6 className="flex items-center w-full text-slate-500 dark:text-blue-custom text-sm mb-2 gap-1 transition-colors">
+      <h6 className="flex items-center w-full text-slate-500 dark:text-blue-custom text-sm gap-1 transition-colors">
         <span>{timestamp}</span>
         <span className="text-xs leading-none">•</span>
         <span>{t(duration, language)} </span>
       </h6>
-      <h6 className="mb-2 text-cyan-600 dark:text-cyan-500 font-bold text-lg flex items-center gap-2 transition-colors">
-        <span>{t(position, language)}</span>
-        <span className="text-xs leading-none">•</span>
-        <span>{place}</span>
-      </h6>
+      <h3 className="font-['Geist_Mono',_monospace] uppercase text-cyan-600 dark:text-cyan-500 font-extrabold text-xl tracking-wider transition-colors">
+          {t(position, language)}
+      </h3>
+      <h4 className="text-slate-700 dark:text-slate-300 font-bold text-lg transition-colors">{place}</h4>
       <p className="mb-2 text-slate-600 dark:text-blue-custom text-sm w-full text-justify transition-colors">
         {t(description, language)}
       </p>

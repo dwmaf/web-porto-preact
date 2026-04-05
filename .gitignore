@@ -13,7 +13,7 @@ dist
 dist-ssr
 dev-dist
 *.local
-project-archive
+projects-archive
 
 # Editor directories and files
 .vscode/*

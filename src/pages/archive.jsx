@@ -5,9 +5,14 @@ import { Project } from "../components/project";
 import { useLanguage, t } from "../context/language-context";
 import { ArrowLeft } from "feather-icons-react";
 import { route } from "preact-router";
+import { Subheader } from "../components/subheader";
 
 export function Archive() {
   const { language } = useLanguage();
+  const [hoverStates, setHoverStates] = useState([
+    { isHovering: false, wasHovering: false }, // MAIN PROJECTS
+    { isHovering: false, wasHovering: false }, // PERSONAL PROJECTS
+  ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,8 +44,8 @@ export function Archive() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 p-6 md:p-12 lg:p-20 font-['League_Spartan',_sans-serif] transition-colors duration-300">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-200 p-6 md:p-12 lg:p-20 font-['League_Spartan',_sans-serif] transition-colors duration-300">
+      <div className="mx-auto">
         <button
           onClick={() => route("/")}
           className="group flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:text-teal-500 dark:hover:text-teal-300 mb-8 transition-colors"
@@ -64,13 +69,14 @@ export function Archive() {
         </header>
 
         <section className="mb-20">
-          <h2 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-8 flex items-center gap-4 transition-colors">
-            <span className="font-medium w-7 h-[1px] bg-slate-300 dark:bg-slate-600 transition-colors" />
-            <span className="font-['Geist_Mono',_monospace] text-slate-400 dark:text-slate-500 text-sm">
-               01. /
-            </span>
-            {t(mainSectionTitle, language).toUpperCase()}
-          </h2>
+          <Subheader
+            label={mainSectionTitle}
+            index={0}
+            number="01"
+            hoverStates={hoverStates}
+            setHoverStates={setHoverStates}
+            onClick={() => {}}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projectsData.map((project) => (
               <Project
@@ -88,13 +94,14 @@ export function Archive() {
         </section>
 
         <section className="mb-20">
-          <h2 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400 mb-8 flex items-center gap-4 transition-colors">
-            <span className="font-medium w-7 h-[1px] bg-slate-300 dark:bg-slate-600 transition-colors" />
-            <span className="font-['Geist_Mono',_monospace] text-slate-400 dark:text-slate-500 text-sm">
-               02. /
-            </span>
-            {t(personalSectionTitle, language).toUpperCase()}
-          </h2>
+          <Subheader
+            label={personalSectionTitle}
+            index={1}
+            number="02"
+            hoverStates={hoverStates}
+            setHoverStates={setHoverStates}
+            onClick={() => {}}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {personalProjectsData.map((project) => (
               <Project
